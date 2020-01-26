@@ -1,18 +1,9 @@
-let = {}
-
-i = 1
-
-('a'..'z').each do |x|
-  let[x] = i
-  i += 1
-end
-
-vowel = 'eyuioa'
 vowel_hash = {}
+vowel = 'eyuioa'
 
-let.each do |letter, key|
+('a'..'z').each_with_index do |letter, index|
   if vowel.include?(letter)
-  vowel_hash[letter] = key
+    vowel_hash[letter] = index + 1
   end
 end
 

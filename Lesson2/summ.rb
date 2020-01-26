@@ -3,7 +3,7 @@ sum = 0
 sum_for_name = {}
 
 loop do
-  puts 'Enter name of goods:'
+  puts "Enter name of goods or 'stop' to exit"
   name = gets.chomp
   break if name == 'stop'
 
@@ -19,10 +19,11 @@ loop do
     basket[name] = { 'price' => price, 'count' => count }
   end
 end
-
+# Исправил блок, т.к результат был неверным.
 basket.each do | name, inner_hash |
-  sum += inner_hash['price'] * inner_hash['count']
-  sum_for_name[name] = sum
+  each_summ = inner_hash['price'] * inner_hash['count']
+  sum_for_name[name]  = each_summ
+  sum += each_summ
 end
 
 puts "Total summ for each product:  #{sum_for_name}"
