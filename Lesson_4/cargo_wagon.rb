@@ -1,5 +1,5 @@
 class CargoWagon < Wagon
-  def initialize(number, type = "cargo")
+  def initialize(type = "cargo")
     super
   end
 end

@@ -4,21 +4,20 @@ class Route
   def initialize(first_station, last_station)
     @first_station = first_station
     @last_station = last_station
-    @stations = [first_station, last_station]
+    @stations = [@first_station, @last_station]
   end
-  def add_stantion(name)
+
+  def add_station(station)
     i = @stations.count
     if i <= 2
       @stations << @last_station
-      @stations[-2] = name
+      @stations[-2] = station
     else
-      @staions[-2] = name
+      @staions[-2] = station
     end
   end
-  def del_stantion(name)
-    @stations.delete(name)
-  end
-  def show_route
-    @stations.each_with_index { |station, index| puts "#{station.name} is #{index + 1}" }
+
+  def del_stantion(station)
+    @stations.delete(station)
   end
 end

@@ -5,12 +5,13 @@ class Station
     @name = name
     @trains = []
   end
+
   def take_train(train)
     trains << train
   end
+
   def send_train(train)
-    if trains.include?(train)
-      trains.delete(train)
-    end
+    trains.delete(train) if trains.include?(train)
   end
+
 end

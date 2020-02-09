@@ -1,5 +1,5 @@
 class PassengerWagon < Wagon
-  def initialize(number, type = "pass")
+  def initialize(type = "pass")
     super
-  end
+end
 end
