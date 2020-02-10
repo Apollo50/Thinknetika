@@ -1,5 +1,5 @@
 class Train
-  attr_reader :number, :type, :speed, :wagons, :current_station, :route, :previous_station, :next_station
+  attr_reader :number, :type, :speed, :wagons, :current_station, :route
 
   def initialize(number, type)
     @number = number
@@ -32,33 +32,31 @@ class Train
 
   def move_forward
     if current_station != last_station
-      next_st = find_next_station
+      next_station = find_next_station
       current_station.send_train(self)
-      next_st.take_train(self)
-      @current_station = next_st
+      next_station.take_train(self)
+      @current_station = next_station
     end
   end
 
   def move_back
     if current_station != first_station
-      prev_st = find_previous_station
+      previous_station = find_previous_station
       current_station.send_train(self)
-      prev_st.take_train(self)
-      @current_station = prev_st
+      previous_station.take_train(self)
+      @current_station = previous_station
     end
   end
 
   def previous_station
     if current_station != first_station
       find_previous_station
-      @previous_stat.name
     end
   end
 
   def next_station
     if current_station != last_station
       find_next_station
-      @next_stat.name
     end
   end
 
@@ -82,10 +80,10 @@ class Train
   end
 
   def find_previous_station
-    @previous_stat = route.stations[route.stations.index(current_station) - 1]
+    @previous_station = route.stations[route.stations.index(current_station) - 1]
   end
 
   def find_next_station
-    @next_stat = route.stations[route.stations.index(current_station) + 1]
+    @next_station = route.stations[route.stations.index(current_station) + 1]
   end
 end

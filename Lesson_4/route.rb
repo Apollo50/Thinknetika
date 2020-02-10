@@ -8,16 +8,10 @@ class Route
   end
 
   def add_station(station)
-    i = @stations.count
-    if i <= 2
-      @stations << @last_station
-      @stations[-2] = station
-    else
-      @staions[-2] = station
-    end
+      @stations.insert(-2, station)
   end
 
   def del_stantion(station)
-    @stations.delete(station)
+    @stations.delete(station) if station != ( first_station && last_station )
   end
 end
