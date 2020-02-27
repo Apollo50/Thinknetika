@@ -5,17 +5,18 @@ module InstanceCounter
   end
 
   module ClassMethods
-    attr_reader :instances
+    def instances
+      @instances ||= 0
+      @instances
+    end
 
     def instances_up
       @instances ||= 0
       @instances += 1
     end
-
   end
 
   module InstanceMethods
-
     private
 
     def register_instance
