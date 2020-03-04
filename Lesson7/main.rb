@@ -319,7 +319,7 @@ class MainMenu
   def buy_place
     if @selected_train.type == "pass"
       puts "This train has got #{@selected_train.wagons.length} wagons."
-      puts "#{available_place}"
+      available_place
       puts "Chose wagon."
       print '=>'
       wagon = gets.to_i
@@ -327,7 +327,7 @@ class MainMenu
       puts "You successfully bought one ticket!"
     elsif @selected_train.type == "cargo"
       puts "This train has got #{@selected_train.wagons.length} wagons."
-      puts "#{available_place}"
+      available_place
       puts "Chose wagon."
       print '=>'
       wagon = gets.to_i
